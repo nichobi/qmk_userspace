@@ -4,13 +4,15 @@
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _QWERTY 0
-#define _SYM    1
-#define _NAV    2
+#define _COLEMAK 0
+#define _QWERTY  1
+#define _SYM     2
+#define _NAV     3
 //#define _ADJ    3
 
 enum custom_keycodes {
-  QWERTY = SAFE_RANGE,
+  COLEMAK_DH = SAFE_RANGE,
+  QWERTY,
   SYM,
   NAV,
   ADJ,
@@ -21,6 +23,9 @@ enum custom_keycodes {
 #define NAV_L MO(_NAV)
 
 #define KC_MICM KC_F20
+
+#define COLEMAK DF(_COLEMAK)
+#define QWERTY  DF(_QWERTY)
 
 //#define KC_ALAS LALT_T(KC_PAST)
 //#define KC_CTPL LCTL_T(KC_BSLS)
@@ -33,6 +38,35 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
+  [_COLEMAK] = LAYOUT(
+  /* COLEMAK_DH
+   * ,-----------------------------------------.                                            ,-----------------------------------------.
+   * | ` ~  |   1  |   2  |   3  |   4  |   5  |-------.                            ,-------|   6  |   7  |   8  |   9  |   0  | = +  |
+   * |------+------+------+------+------+------| [ {   |                            | ] }   |------+------+------+------+------+------|
+   * | Tab  |   Q  |   W  |   F  |   P  |   B  |-------.                            |-------|   J  |   L  |   U  |   Y  | ; :  | - _  |
+   * |------+------+------+------+------+------| Delete|                            |Backspc|------+------+------+------+------+------|
+   * | Esc  |   A  |   R  |   S  |   T  |   G  |       |                            |       |   M  |   N  |   E  |   I  |   O  | ' "  |
+   * |------+------+------+------+------+------|-------'                            `-------|------+------+------+------+------+------|
+   * |      |   Z  |   X  |   C  |   D  |   V  '----------------,          ,----------------'   K  |   H  | , <  | . >  | / ?  | \ |  |
+   * |------+------+------+------+-------------/       /       /            \       \       \-------------+------+------+------+------|
+   * |QWERTY|      |      | Alt  |    / Ctrl  /-------/-------/              \-------\-------\ _NAV  \    | _SYM | End  | PgUp | PgDn |
+   * |      |      |      |      |   /       / Shift / Super /                \ Enter \ Space \       \   |      |      |      |      |
+   * `---------------------------'  '-------/       /       /                  \       \       \-------'  '---------------------------'
+   *                                        '--------------'                    '--------------'
+   */
+  //┌───────┬───────┬───────┬───────┬───────┬───────┐                                  ┌───────┬───────┬───────┬───────┬───────┬───────┐
+     KC_GRV ,KC_1   ,KC_2   ,KC_3   ,KC_4   ,KC_5   ,                                   KC_6   ,KC_7   ,KC_8   ,KC_9   ,KC_0   ,KC_EQL ,
+  //├───────┼───────┼───────┼───────┼───────┼───────┼───────┐                  ┌───────┼───────┼───────┼───────┼───────┼───────┼───────┤
+     KC_TAB ,KC_Q   ,KC_W   ,KC_F   ,KC_P   ,KC_B   ,KC_LBRC,                   KC_RBRC,KC_J   ,KC_L   ,KC_U   ,KC_Y   ,KC_SCLN,KC_MINS,
+  //├───────┼───────┼───────┼───────┼───────┼───────┼───────┤                  ├───────┼───────┼───────┼───────┼───────┼───────┼───────┤
+     KC_ESC ,KC_A   ,KC_R   ,KC_S   ,KC_T   ,KC_G   ,KC_DEL ,                   KC_BSPC,KC_M   ,KC_N   ,KC_E   ,KC_I   ,KC_O   ,KC_QUOT,
+  //├───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┐  ┌───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┤
+     XXXXXXX,KC_Z   ,KC_X   ,KC_C   ,KC_D   ,KC_V   ,XXXXXXX,XXXXXXX,   XXXXXXX,XXXXXXX,KC_K   ,KC_H   ,KC_COMM,KC_DOT ,KC_SLSH,KC_BSLS,
+  //├───────┼───────┼───────┼───────┼──────┬┴──────┬┼───────┼───────┤  ├───────┼───────┼┬──────┴┬──────┼───────┼───────┼───────┼───────┤
+     QWERTY ,XXXXXXX,XXXXXXX,KC_LALT,       KC_LCTL, KC_LSFT,KC_LGUI,   KC_ENT ,KC_SPC , NAV_L  ,       SYM_L  ,XXXXXXX,XXXXXXX,XXXXXXX
+  //└───────┴───────┴───────┴───────┘      └───────┘└───────┴───────┘  └───────┴───────┘└───────┘      └───────┴───────┴───────┴───────┘
+  ),
+
   [_QWERTY] = LAYOUT(
   /* QWERTY
    * ,-----------------------------------------.                                            ,-----------------------------------------.
@@ -44,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------|-------'                            `-------|------+------+------+------+------+------|
    * |      |   Z  |   X  |   C  |   V  |   B  '----------------,          ,----------------'   N  |   M  | , <  | . >  | / ?  | \ |  |
    * |------+------+------+------+-------------/       /       /            \       \       \-------------+------+------+------+------|
-   * |      |      |      | Alt  |    / Ctrl  /-------/-------/              \-------\-------\ _NAV  \    | _SYM | End  | PgUp | PgDn |
+   * |COLEMA|      |      | Alt  |    / Ctrl  /-------/-------/              \-------\-------\ _NAV  \    | _SYM | End  | PgUp | PgDn |
    * |      |      |      |      |   /       / Shift / Super /                \ Enter \ Space \       \   |      |      |      |      |
    * `---------------------------'  '-------/       /       /                  \       \       \-------'  '---------------------------'
    *                                        '--------------'                    '--------------'
@@ -58,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┐  ┌───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┤
      XXXXXXX,KC_Z   ,KC_X   ,KC_C   ,KC_V   ,KC_B   ,XXXXXXX,XXXXXXX,   XXXXXXX,XXXXXXX,KC_N   ,KC_M   ,KC_COMM,KC_DOT ,KC_SLSH,KC_BSLS,
   //├───────┼───────┼───────┼───────┼──────┬┴──────┬┼───────┼───────┤  ├───────┼───────┼┬──────┴┬──────┼───────┼───────┼───────┼───────┤
-     XXXXXXX,XXXXXXX,XXXXXXX,KC_LALT,       KC_LCTL, KC_LSFT,KC_LGUI,   KC_ENT ,KC_SPC , NAV_L  ,       SYM_L  ,XXXXXXX,XXXXXXX,XXXXXXX
+     COLEMAK,XXXXXXX,XXXXXXX,KC_LALT,       KC_LCTL, KC_LSFT,KC_LGUI,   KC_ENT ,KC_SPC , NAV_L  ,       SYM_L  ,XXXXXXX,XXXXXXX,XXXXXXX
   //└───────┴───────┴───────┴───────┘      └───────┘└───────┴───────┘  └───────┴───────┘└───────┘      └───────┴───────┴───────┴───────┘
   ),
 
