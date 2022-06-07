@@ -36,6 +36,12 @@ enum custom_keycodes {
 //#define KC_ADEN LT(_ADJ, KC_END)
 //#define KC_ADPU LT(_ADJ, KC_PGUP)
 
+// Force numlock
+bool led_update_user(led_t led_state){
+  if(!led_state.num_lock) tap_code(KC_NLCK);
+  return true;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_COLEMAK] = LAYOUT(
