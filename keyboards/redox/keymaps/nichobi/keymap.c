@@ -23,6 +23,7 @@ enum custom_keycodes {
 #define NAV_L MO(_NAV)
 
 #define KC_MICM KC_F20
+#define KC_COMP KC_RCTL
 
 #define COLEMAK DF(_COLEMAK)
 #define QWERTY  DF(_QWERTY)
@@ -53,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------| Delete|                            |Backspc|------+------+------+------+------+------|
    * | Esc  |   A  |   R  |   S  |   T  |   G  |       |                            |       |   M  |   N  |   E  |   I  |   O  | ' "  |
    * |------+------+------+------+------+------|-------'                            `-------|------+------+------+------+------+------|
-   * |      |   Z  |   X  |   C  |   D  |   V  '----------------,          ,----------------'   K  |   H  | , <  | . >  | / ?  | \ |  |
+   * |Compos|   Z  |   X  |   C  |   D  |   V  '----------------,          ,----------------'   K  |   H  | , <  | . >  | / ?  | \ |  |
    * |------+------+------+------+-------------/       /       /            \       \       \-------------+------+------+------+------|
    * |QWERTY|      |      | Alt  |    / Ctrl  /-------/-------/              \-------\-------\ _NAV  \    | _SYM |      |      |      |
    * |      |      |      |      |   /       / Shift / Super /                \ Enter \ Space \       \   |      |      |      |      |
@@ -67,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├───────┼───────┼───────┼───────┼───────┼───────┼───────┤                  ├───────┼───────┼───────┼───────┼───────┼───────┼───────┤
      KC_ESC ,KC_A   ,KC_R   ,KC_S   ,KC_T   ,KC_G   ,KC_DEL ,                   KC_BSPC,KC_M   ,KC_N   ,KC_E   ,KC_I   ,KC_O   ,KC_QUOT,
   //├───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┐  ┌───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┤
-     XXXXXXX,KC_Z   ,KC_X   ,KC_C   ,KC_D   ,KC_V   ,XXXXXXX,XXXXXXX,   XXXXXXX,XXXXXXX,KC_K   ,KC_H   ,KC_COMM,KC_DOT ,KC_SLSH,KC_BSLS,
+     KC_COMP,KC_Z   ,KC_X   ,KC_C   ,KC_D   ,KC_V   ,XXXXXXX,XXXXXXX,   XXXXXXX,XXXXXXX,KC_K   ,KC_H   ,KC_COMM,KC_DOT ,KC_SLSH,KC_BSLS,
   //├───────┼───────┼───────┼───────┼──────┬┴──────┬┼───────┼───────┤  ├───────┼───────┼┬──────┴┬──────┼───────┼───────┼───────┼───────┤
      QWERTY ,XXXXXXX,XXXXXXX,KC_LALT,       KC_LCTL, KC_LSFT,KC_LGUI,   KC_ENT ,KC_SPC , NAV_L  ,       SYM_L  ,XXXXXXX,XXXXXXX,XXXXXXX
   //└───────┴───────┴───────┴───────┘      └───────┘└───────┴───────┘  └───────┴───────┘└───────┘      └───────┴───────┴───────┴───────┘
@@ -82,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------| Delete|                            |Backspc|------+------+------+------+------+------|
    * | Esc  |   A  |   S  |   D  |   F  |   G  |       |                            |       |   H  |   J  |   K  |   L  | ; :  | ' "  |
    * |------+------+------+------+------+------|-------'                            `-------|------+------+------+------+------+------|
-   * |      |   Z  |   X  |   C  |   V  |   B  '----------------,          ,----------------'   N  |   M  | , <  | . >  | / ?  | \ |  |
+   * |Compos|   Z  |   X  |   C  |   V  |   B  '----------------,          ,----------------'   N  |   M  | , <  | . >  | / ?  | \ |  |
    * |------+------+------+------+-------------/       /       /            \       \       \-------------+------+------+------+------|
    * | COLE |      |      | Alt  |    / Ctrl  /-------/-------/              \-------\-------\ _NAV  \    | _SYM |      |      |      |
    * | MAK  |      |      |      |   /       / Shift / Super /                \ Enter \ Space \       \   |      |      |      |      |
@@ -96,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├───────┼───────┼───────┼───────┼───────┼───────┼───────┤                  ├───────┼───────┼───────┼───────┼───────┼───────┼───────┤
      KC_ESC ,KC_A   ,KC_S   ,KC_D   ,KC_F   ,KC_G   ,KC_DEL ,                   KC_BSPC,KC_H   ,KC_J   ,KC_K   ,KC_L   ,KC_SCLN,KC_QUOT,
   //├───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┐  ┌───────┼───────┼───────┼───────┼───────┼───────┼───────┼───────┤
-     XXXXXXX,KC_Z   ,KC_X   ,KC_C   ,KC_V   ,KC_B   ,XXXXXXX,XXXXXXX,   XXXXXXX,XXXXXXX,KC_N   ,KC_M   ,KC_COMM,KC_DOT ,KC_SLSH,KC_BSLS,
+     KC_COMP,KC_Z   ,KC_X   ,KC_C   ,KC_V   ,KC_B   ,XXXXXXX,XXXXXXX,   XXXXXXX,XXXXXXX,KC_N   ,KC_M   ,KC_COMM,KC_DOT ,KC_SLSH,KC_BSLS,
   //├───────┼───────┼───────┼───────┼──────┬┴──────┬┼───────┼───────┤  ├───────┼───────┼┬──────┴┬──────┼───────┼───────┼───────┼───────┤
      COLEMAK,XXXXXXX,XXXXXXX,KC_LALT,       KC_LCTL, KC_LSFT,KC_LGUI,   KC_ENT ,KC_SPC , NAV_L  ,       SYM_L  ,XXXXXXX,XXXXXXX,XXXXXXX
   //└───────┴───────┴───────┴───────┘      └───────┘└───────┴───────┘  └───────┴───────┘└───────┘      └───────┴───────┴───────┴───────┘
