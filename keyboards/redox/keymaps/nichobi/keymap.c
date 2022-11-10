@@ -37,6 +37,12 @@ enum custom_keycodes {
 //#define KC_ADEN LT(_ADJ, KC_END)
 //#define KC_ADPU LT(_ADJ, KC_PGUP)
 
+// Force numlock
+bool led_update_user(led_t led_state){
+  if(!led_state.num_lock) tap_code(KC_NLCK);
+  return true;
+}
+
 // Define key overrides
 const key_override_t **key_overrides = (const key_override_t *[]){
   // Horizontal scrolling while holding shift
