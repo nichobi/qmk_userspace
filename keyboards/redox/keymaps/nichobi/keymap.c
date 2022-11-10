@@ -15,7 +15,7 @@ enum custom_keycodes {
   QWERTY,
   SYM,
   NAV,
-  ADJ,
+//ADJ,
 };
 
 // Shortcut to make keymap more readable
