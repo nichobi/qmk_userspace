@@ -39,10 +39,10 @@ enum custom_keycodes {
 
 // Define key overrides
 const key_override_t **key_overrides = (const key_override_t *[]){
-    // Horizontal scrolling while holding shift
-    &ko_make_basic(MOD_MASK_SHIFT, KC_WH_U, KC_WH_L),
-    &ko_make_basic(MOD_MASK_SHIFT, KC_WH_D, KC_WH_R),
-    NULL // Null terminate the array of overrides!
+  // Horizontal scrolling while holding shift
+  &ko_make_basic(MOD_MASK_SHIFT, KC_WH_U, KC_WH_L),
+  &ko_make_basic(MOD_MASK_SHIFT, KC_WH_D, KC_WH_R),
+  NULL // Null terminate the array of overrides!
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
