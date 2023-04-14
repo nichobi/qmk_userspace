@@ -39,7 +39,7 @@ enum custom_keycodes {
 
 // Force numlock
 bool led_update_user(led_t led_state){
-  if(!led_state.num_lock) tap_code(KC_NLCK);
+  if(!led_state.num_lock) tap_code(KC_NUM_LOCK);
   return true;
 }
 
