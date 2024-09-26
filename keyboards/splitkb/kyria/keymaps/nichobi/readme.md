@@ -69,7 +69,7 @@ After making transformations to the classic ANSI US QWERTY TKL 60% to arrive to 
 
 First thing to notice is the presence of blank keys. To fill in the blank keys above the <kbd>Space</kbd> keys, we can take inspiration from other split keyboards featuring an extra inner index column on each half. A common mapping for those kind of keys are the bracket keys that got removed in the fourth step of the animated transformation. The thumb keys besides <kbd>Space</kbd>s is prime real estate for dedicated layer-switching keys. It doesn't matter on which side is assigned the sym-layer-switch key but it helps to keep the nav-layer-switch on the left in order to keep the arrow keys on the right side like on a classic keyboard, so we'll put nav on the left and sym on the right. We'll address the remaining blank thumb keys later.
 
-The base layer is starting to form but there remains some flaws. One glaring issue is the position of Control. Control is a very commonly used function but the key on which it sits right now is way too tucked in under the hand to be able to press it comfortably with either the thumb or the pinky from resting position. In fact, installing a rotary encoder there is a common move among Kyria users and I guarantee you that activating Control by holding down a rotary encoder does not spark joy. Instead, let's employ a popular trick that involves remapping the current Caps Lock key, which is positioned at a comfortable position on the keyboard, to Control. 
+The base layer is starting to form but there remains some flaws. One glaring issue is the position of Control. Control is a very commonly used function but the key on which it sits right now is way too tucked in under the hand to be able to press it comfortably with either the thumb or the pinky from resting position. In fact, installing a rotary encoder there is a common move among Kyria users and I guarantee you that activating Control by holding down a rotary encoder does not spark joy. Instead, let's employ a popular trick that involves remapping the current Caps Lock key, which is positioned at a comfortable position on the keyboard, to Control.
 
 We can go further though; a variant of this trick makes the Control key produce Escape when tapped. This is called a “modtap”. There is no use to tapping Control by itself without chording it with another key and there is no use to holding down the Esc key so why not combine the two into a single key?
 
@@ -127,7 +127,7 @@ Finally, we're one Quality-Of-Life update away from the actual base layer. <kbd>
 
 ```
 Nav Layer: Media, navigation
-                                                                                                                         
+
 ,-------------------------------------------.                              ,-------------------------------------------.
 |        |      |      |      |      |      |                              | PgUp | Home |   ↑  | End  | VolUp| Delete |
 |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
@@ -153,7 +153,7 @@ Useful mnemonics:
 ## Sym layer
 ```
 Sym Layer: Numbers, symbols
-                                                                                                                         
+
 ,-------------------------------------------.                              ,-------------------------------------------.
 |    `   |  1   |  2   |  3   |  4   |  5   |                              |   6  |  7   |  8   |  9   |  0   |   =    |
 |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
@@ -169,7 +169,7 @@ The top row is the unshifted num row, the home row of the layer is the shifted n
 
 The layout of the first two rows needs no introduction, you're already used to them but it's worth looking into the structure of the bottom row.
 
-The two halves are mirrored in a sense. On the right, you can find <kbd>,</kbd> <kbd>.</kbd> <kbd>/</kbd> at their usual spots with the addition of <kbd>Shift</kbd>+<kbd>/</kbd>=<kbd>?</kbd> to the right of the <kbd>/</kbd> key to remove the need to press simultaneously <kbd>Sym</kbd> and a <kbd>Shift</kbd> key to access `?`. 
+The two halves are mirrored in a sense. On the right, you can find <kbd>,</kbd> <kbd>.</kbd> <kbd>/</kbd> at their usual spots with the addition of <kbd>Shift</kbd>+<kbd>/</kbd>=<kbd>?</kbd> to the right of the <kbd>/</kbd> key to remove the need to press simultaneously <kbd>Sym</kbd> and a <kbd>Shift</kbd> key to access `?`.
 
 Now, if you look at the left side, you'll notice that the mirror of <kbd>,</kbd> is <kbd>;</kbd>, the mirror of <kbd>.</kbd> is <kbd>:</kbd> and the mirror of <kbd>/</kbd> is <kbd>\\</kbd>. The same logic used for <kbd>Shift</kbd>+<kbd>/</kbd>=<kbd>?</kbd> also applies to <kbd>Shift</kbd>+<kbd>\\</kbd>=<kbd>|</kbd>.
 
@@ -178,7 +178,7 @@ In case you wish to combine <kbd>Shift</kbd> with a symbol key anyways, you can 
 ## Function layer
 ```
 Function Layer: Function keys
-                                                                                                                         
+
 ,-------------------------------------------.                              ,-------------------------------------------.
 |        |  F9  | F10  | F11  | F12  |      |                              |      |      |      |      |      |        |
 |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
@@ -200,7 +200,7 @@ Since there are more than 10 function keys, the cluster of F-keys does not follo
 ## Adjust layer
 ```
 Adjust Layer: Default layer settings, RGB
-                                                                                                                         
+
 ,-------------------------------------------.                              ,-------------------------------------------.
 |        |      |      |QWERTY|      |      |                              |      |      |      |      |      |        |
 |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
