@@ -1,21 +1,10 @@
 #include QMK_KEYBOARD_H
 
-// Each layer gets a name for readability, which is then used in the keymap matrix below.
-// The underscores don't mean anything - you can have a layer called STUFF or any other name.
-// Layer names don't all need to be of the same length, obviously, and you can also skip them
-// entirely and just use numbers.
-#define _COLEMAK 0
-#define _QWERTY  1
-#define _SYM     2
-#define _NAV     3
-//#define _ADJ    3
-
-enum custom_keycodes {
-  COLEMAK_DH = SAFE_RANGE,
-  QWERTY,
-  SYM,
-  NAV,
-//ADJ,
+enum layers {
+  _COLEMAK,
+  _QWERTY,
+  _SYM,
+  _NAV
 };
 
 // Shortcut to make keymap more readable
@@ -44,7 +33,7 @@ bool led_update_user(led_t led_state){
 }
 
 // Define key overrides
-const key_override_t **key_overrides = (const key_override_t *[]){
+const key_override_t *key_overrides[] = (const key_override_t *[]){
   // Horizontal scrolling while holding shift
   &ko_make_basic(MOD_MASK_SHIFT, KC_WH_U, KC_WH_L),
   &ko_make_basic(MOD_MASK_SHIFT, KC_WH_D, KC_WH_R),
