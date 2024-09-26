@@ -19,6 +19,9 @@ enum layers {
 #define FKEYS    MO(_FUNCTION)
 #define ADJUST   MO(_ADJUST)
 
+#define KC_MICM  KC_F20
+#define KC_COMP  KC_RCTL
+
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
@@ -36,23 +39,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                                            ,-------------------------------------------.
  * |  Tab   |   Q  |   W  |   F  |   P  |   B  |                                            |   J  |   L  |   U  |   Y  | ;  : |  Bksp  |
  * |--------+------+------+------+------+------|                                            |------+------+------+------+------+--------|
- * |Ctrl/Esc|   A  |   R  |   S  |   T  |   G  |                                            |   M  |   N  |   E  |   I  |   O  |Ctrl/' "|
+ * |  Esc   |   A  |   R  |   S  |   T  |   G  |                                            |   M  |   N  |   E  |   I  |   O  | ' "    |
  * |--------+------+------+------+------+------+-------------.                ,-------------+------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   D  |   V  | [ {  |CapsLk|                |F-keys|  ] } |   K  |   H  | ,  < | . >  | /  ? | RShift |
+ * | Compose|   Z  |   X  |   C  |   D  |   V  | [ {  |CapsLk|                |F-keys|  ] } |   K  |   H  | ,  < | . >  | /  ? | \ |    |
  * `----------------------+------+------+------+------+------|                |------+------+------+------+------+----------------------'
- *                        |Adjust| LGUI | LAlt/| Space| Nav  |                | Sym  | Space| AltGr| RGUI | Menu |
- *                        |      |      | Enter|      |      |                |      |      |      |      |      |
+ *                        |Adjust| Alt  | Ctrl | Shift| Super|                | Enter| Space| _NAV | _SYM | Menu |
+ *                        |      |      |      |      |      |                |      |      |      |      |      |
  *                        `----------------------------------'                `----------------------------------'
  */
     [_COLEMAK_DH] = LAYOUT(
   //┌───────┬───────┬───────┬───────┬───────┬───────┐                                  ┌───────┬───────┬───────┬───────┬───────┬───────┐
      KC_TAB ,KC_Q   ,KC_W   ,KC_F   ,KC_P   ,KC_B   ,                                   KC_J   ,KC_L   ,KC_U   ,KC_Y   ,KC_SCLN,KC_BSPC,
   //├───────┼───────┼───────┼───────┼───────┼───────┤                                  ├───────┼───────┼───────┼───────┼───────┼───────┤
-     CTL_ESC,KC_A   ,KC_R   ,KC_S   ,KC_T   ,KC_G   ,                                   KC_M   ,KC_N   ,KC_E   ,KC_I   ,KC_O   ,CTL_QUOT,
+     KC_ESC ,KC_A   ,KC_R   ,KC_S   ,KC_T   ,KC_G   ,                                   KC_M   ,KC_N   ,KC_E   ,KC_I   ,KC_O   ,KC_QUOT,
   //├───────┼───────┼───────┼───────┼───────┼───────┼───────┬───────┐  ┌───────┬───────┼───────┼───────┼───────┼───────┼───────┼───────┤
-     KC_LSFT,KC_Z   ,KC_X   ,KC_C   ,KC_D   ,KC_V   ,KC_LBRC,KC_CAPS,   FKEYS  ,KC_RBRC,KC_K   ,KC_H   ,KC_COMM,KC_DOT ,KC_SLSH,KC_RSFT,
+     KC_COMP,KC_Z   ,KC_X   ,KC_C   ,KC_D   ,KC_V   ,KC_LBRC,KC_CAPS,   FKEYS  ,KC_RBRC,KC_K   ,KC_H   ,KC_COMM,KC_DOT ,KC_SLSH,KC_BSLS,
   //└───────┴───────┴───────┼───────┼───────┼───────┼───────┼───────┤  ├───────┼───────┼───────┼───────┼───────┼───────┴───────┴───────┘
-                             ADJUST ,KC_LGUI,ALT_ENT,KC_SPC ,NAV    ,   SYM    ,KC_SPC ,KC_RALT,KC_RGUI,KC_APP
+                             ADJUST ,KC_LALT,KC_LCTL,KC_LSFT,KC_LGUI,   KC_ENT ,KC_SPC ,NAV    ,SYM    ,KC_APP
   //                        └───────┴───────┴───────┴───────┴───────┘  └───────┴───────┴───────┴───────┴───────┘
     ),
 
