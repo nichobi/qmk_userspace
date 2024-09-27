@@ -28,11 +28,8 @@ bool oled_task_user(void) {
             case _SYM:
                 oled_write_P(PSTR("Sym\n"), false);
                 break;
-            case _FUNCTION:
+            case _FUN:
                 oled_write_P(PSTR("Function\n"), false);
-                break;
-            case _ADJUST:
-                oled_write_P(PSTR("Adjust\n"), false);
                 break;
             default:
                 oled_write_P(PSTR("Undefined\n"), false);
